@@ -68,6 +68,15 @@ if(session('access_token')) {
   print_r($user);
   echo '</pre>';
 
+#print out full list of urls of github  
+  print '<br /><br />';
+  print '<h3>Full List of Urls on Github</h3>';
+  $full = apiRequest($apiURLBase);
+  foreach ($full as $key=>$value)
+  {
+      print $key .'=>'. $value.'<br />';
+  }
+  
   
 } else {
 
