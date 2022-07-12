@@ -1,7 +1,7 @@
 <?php
 # add github credentials
-define('OAUTH2_CLIENT_ID', ''); //add client id here
-define('OAUTH2_CLIENT_SECRET', ''); //add client secret here
+define('OAUTH2_CLIENT_ID', '32b1ab6c7581851b6336'); //add client id here
+define('OAUTH2_CLIENT_SECRET', '51bf0d9f0705a9b11a3802ce71341dd986b2806c'); //add client secret here
 
 # URL of github api
 $authorizeURL = 'https://github.com/login/oauth/authorize';
@@ -60,23 +60,64 @@ if(get('code')) {
 
 # if successful show results
 if(session('access_token')) {
-  $user = apiRequest($apiURLBase.'user');
 
-  echo '<h3>Logged In</h3>';
-  echo '<h4>' . $user->login . '</h4>';
-  echo '<pre>';
-  print_r($user);
-  echo '</pre>';
 
-#print out full list of urls of github  
-  print '<br /><br />';
-  print '<h3>Full List of Urls on Github</h3>';
-  $full = apiRequest($apiURLBase);
-  foreach ($full as $key=>$value)
-  {
-      print $key .'=>'. $value.'<br />';
-  }
-  
+
+/*
+$user = apiRequest($apiURLBase.'user'); //get the repo url for this user
+$repoissues = apiRequest($user->repos_url); //pull all repos
+foreach ($repoissues as $repodetails){
+
+//https://api.github.com/repos/DeanDevel/nginx-proxy-manager/issues{/number}
+echo $repodetails->issues_url.'<br />';
+echo $repodetails->open_issues_count.'<br />';
+
+echo '<br /><br />';
+print_r($repodetails);
+echo '<br /><br />';
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+    print '<br /><br />';
+    $user = apiRequest($apiURLBase.'user');
+    echo '<h3>Logged In</h3>';
+    echo '<h4>' . $user->login . '</h4>';
+    echo '<pre>';
+    print_r($user);
+    echo '</pre>';
+
+    print '<br /><br />';
+    print '<h3>Full List of Urls on Github</h3>';
+    $full = apiRequest($apiURLBase);
+    foreach ($full as $key=>$value)
+    {
+        print $key .'=>'. $value.'<br />';
+    }
+    print '<br /><br />';
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 } else {
 
@@ -97,6 +138,8 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
 
   $headers[] = 'Accept: application/json';
+  //$headers[] = 'Accept: application/vnd.github+json';
+  
 
   # add access token to header 
   if(session('access_token'))
