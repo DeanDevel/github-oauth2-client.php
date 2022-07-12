@@ -1,4 +1,34 @@
 <?php
+/*
+///swordfish
+define('OAUTH2_CLIENT_ID', 'd77aa75e0b260c50bbf4');
+define('OAUTH2_CLIENT_SECRET', '97b631080b24174e7732db04c4ea5b002ef6f092');
+
+
+
+
+
+///000webhost -> devtest swordfish -> github
+define('OAUTH2_CLIENT_ID', '32b1ab6c7581851b6336');
+define('OAUTH2_CLIENT_SECRET', '51bf0d9f0705a9b11a3802ce71341dd986b2806c');
+
+
+///mine personal
+define('OAUTH2_CLIENT_ID', 'c90d3d59f99f00bf39ad');
+define('OAUTH2_CLIENT_SECRET', '420695c6b16706d1e7304ef6a7cffb2d315dcd34');
+
+
+
+
+
+///000webhost hosting project
+swordfishdevtest
+T&q5zmUvZKZ)FgSCcGpR
+*/
+
+
+
+
 # add github credentials
 define('OAUTH2_CLIENT_ID', '32b1ab6c7581851b6336'); //add client id here
 define('OAUTH2_CLIENT_SECRET', '51bf0d9f0705a9b11a3802ce71341dd986b2806c'); //add client secret here
